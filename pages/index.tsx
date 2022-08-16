@@ -1,8 +1,9 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 import Layout from '../components/Layout';
-import CharacterInfo, { PostProps } from '../components/CharacterInfo';
+import CharacterInfo from '../components/CharacterInfo';
 import prisma from '../lib/prisma';
+import { Character } from '../types/index.types';
 
 export const getStaticProps: GetStaticProps = async () => {
 	const characters = await prisma.character.findMany({
@@ -21,11 +22,11 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 type Props = {
-	characters: PostProps[];
+	characters: Character[];
 };
 
 const Characters: React.FC<Props> = (props) => {
-	console.log(props);
+	console.log('props =====>', props);
 	return (
 		<Layout>
 			<div className="page">

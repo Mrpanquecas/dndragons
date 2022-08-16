@@ -2,8 +2,8 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import ReactMarkdown from 'react-markdown';
 import Layout from '../../components/Layout';
-import { PostProps } from '../../components/CharacterInfo';
 import prisma from '../../lib/prisma';
+import { Character } from '../../types/index.types';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	const character = await prisma.character.findUnique({
@@ -24,13 +24,17 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	};
 };
 
-const Character: React.FC<PostProps> = (props) => {
+type Props = {
+	character: Character;
+};
+
+const Character: React.FC<Props> = (props) => {
+	console.log("props22 =========>",props)
 	return (
 		<Layout>
 			<div className='bg-red-400'>
 				<h2>{props.character.name}</h2>
 				<p>race => {props?.character?.race || 'Unknown character'}</p>
-				<ReactMarkdown children={props.content} />
 			</div>
 			<style jsx>{`
 				.page {
