@@ -13,29 +13,29 @@ generator client {
 // ============= CHARACTER ===============
 
 model Character {
-  id        String @id @default(cuid())
+  id        String  @id @default(cuid())
   name      String
   race      String
-  class     String
-  gender    String
-  hitpoints Int
-  armor     Int
-  alignment String
-  xp        String
+  cls       String
+  gender    String?
+  hitpoints Int?
+  armor     Int?
+  alignment String?
+  xp        String?
 
-  initiative Int
-  ac         Int
-  speed      Int
+  initiative Int?
+  ac         Int?
+  speed      Int?
 
-  maxHp     Int
-  currentHp Int
+  maxHp     Int?
+  currentHp Int?
 
-  str Int
-  dex Int
-  con Int
-  int Int
-  wis Int
-  cha Int
+  str Int?
+  dex Int?
+  con Int?
+  int Int?
+  wis Int?
+  cha Int?
 
   cantrips String[]
 
