@@ -9,7 +9,11 @@ const CharacterInfo: React.FC<{ character: CharacterInfoProps }> = ({
 	console.log('char info ========>', character);
 	const characterName = character?.name ? character.name : 'Unknown author';
 	return (
-		<div onClick={() => Router.push('/char/[id]', `/char/${character.id}`)}>
+		<div
+			onClick={() =>
+				Router.push('/character/[id]', `/character/${character.id}`)
+			}
+		>
 			<h2>{character?.race}</h2>
 			<small>By {characterName}</small>
 			<ReactMarkdown children={character?.class} />

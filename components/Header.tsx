@@ -118,93 +118,36 @@ const Header: React.FC = () => {
 		left = (
 			<div className="left">
 				<Link href="/">
-					<a className="bold" data-active={isActive('/')}>
-						Feed
+					<a
+						className="font-bold text-gray-400"
+						data-active={isActive('/characters')}
+					>
+						My characters
 					</a>
 				</Link>
-				<Link href="/drafts">
-					<a data-active={isActive('/drafts')}>My drafts</a>
-				</Link>
-				<style jsx>{`
-					.bold {
-						font-weight: bold;
-					}
-
-					a {
-						text-decoration: none;
-						color: var(--geist-foreground);
-						display: inline-block;
-					}
-
-					.left a[data-active='true'] {
-						color: gray;
-					}
-
-					a + a {
-						margin-left: 1rem;
-					}
-				`}</style>
 			</div>
 		);
 		right = (
-			<div className="right">
-				<p>
+			<div className="ml-auto px-2 py-1">
+				<p className="inline-block text-sm mr-4">
 					{session.user.name} ({session.user.email})
 				</p>
-				<Link href="/create">
+				<Link href="/new_character">
 					<button>
-						<a>New post</a>
+						<a className="mr-4 inline-block">New character</a>
 					</button>
 				</Link>
 				<button onClick={() => signOut()}>
-					<a>Log out</a>
+					<a className="inline-block">Log out</a>
 				</button>
-				<style jsx>{`
-					a {
-						text-decoration: none;
-						color: var(--geist-foreground);
-						display: inline-block;
-					}
-
-					p {
-						display: inline-block;
-						font-size: 13px;
-						padding-right: 1rem;
-					}
-
-					a + a {
-						margin-left: 1rem;
-					}
-
-					.right {
-						margin-left: auto;
-					}
-
-					.right a {
-						border: 1px solid var(--geist-foreground);
-						padding: 0.5rem 1rem;
-						border-radius: 3px;
-					}
-
-					button {
-						border: none;
-					}
-				`}</style>
 			</div>
 		);
 	}
 
 	return (
-		<nav>
+		<nav className="flex p-2 items-center">
 			{left}
 			{right}
-			<style jsx>{`
-				nav {
-					display: flex;
-					padding: 2rem;
-					align-items: center;
-				}
-			`}</style>
 		</nav>
 	);
 };

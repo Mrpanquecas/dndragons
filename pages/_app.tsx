@@ -5,7 +5,7 @@ import '../styles/global.css';
 const App = ({ Component, pageProps }: AppProps) => {
 	return (
 		<SessionProvider session={pageProps.session}>
-			<Component {...pageProps} />;
+			<Component {...pageProps} />
 		</SessionProvider>
 	);
 };
